@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(session({secret: "Its a very big secret"}));
 
 // mongoose.createConnection('mongodb://codeit2218:codeit123@ds239692.mlab.com:39692/codeit')
-mongoose.connect('mongodb://localhost/user-data').then(function()
+mongoose.connect('your connection').then(function()
 {
     console.log('database connected')
 })
@@ -108,7 +108,7 @@ user.save().then(function(err,user)
 })
 
 let mailOptions = {
-    from: 'webpaper73@gmail.com',
+    from: 'your email',
     to: req.body.email,
     subject: 'Confirm Account',
     text: 'Click this link to confirm your account ' + ' http://localhost:3000/verify/' + rand +'/' +req.body.email+'/'    
@@ -137,7 +137,7 @@ else{
 user.token=rand;
 user.save();
 let mailOptions = {
-    from: 'webpaper73@gmail.com',
+    from: 'yourmail',
     to: req.body.email,
     subject: 'Confirm Account',
     text: 'Click this link to confirm your account ' + ' http://localhost:3000/verify/' + rand +'/' +req.body.email+'/'    
@@ -172,7 +172,7 @@ var options=
     url:'https://api.authy.com/protected/json/phones/verification/start',
     headers:
     {
-        'X-Authy-API-Key': 'KCgbABrJ2BPS93HHz3SViq4UVPdol0DS'
+        'X-Authy-API-Key': 'your key'
     },
     body:
     {
@@ -236,7 +236,7 @@ var options=
     url:'https://api.authy.com/protected/json/phones/verification/start',
     headers:
     {
-        'X-Authy-API-Key': 'KCgbABrJ2BPS93HHz3SViq4UVPdol0DS'
+        'X-Authy-API-Key': 'your authy api key'
     },
     body:
     {
