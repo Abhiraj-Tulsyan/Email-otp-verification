@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	Signin
+	</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src='js/angular.min.js'> </script>
+<script type="text/javascript" src='js/angular-route.min.js'> </script>
+<script type="text/javascript" src="js/angularwork.js"></script>
+
+
+
+
+
+</head>
+<body ng-app='formApp'>
+<div  ng-controller='secondController'>
+<nav class="navbar navbar-default">
+	<div class='container'>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header navbar-right">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="font-size:160%" href="#">PRIISH</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      	 <li class="dropdown">
+          <a href="#" style="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class='glyphicon glyphicon-home' style="font-size:120%"></span> </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Menu Option 1</a></li>
+           <li><a href="#">Menu Option 2</a></li>
+           <li><a href="#">Menu option 3</a></li>
+          </ul>
+        </li>
+
+<li class="dropdown" ng-show='totalVerified'>
+          <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:120%"> {{username}} </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Menu Option 1</a></li>
+           <li><a href="#">Menu Option 2</a></li>
+           <li><a href="#">Menu option 3</a></li>
+          </ul>
+        </li>
+
+
+        <li style="font-size:120%"><a href="#">ABOUT </a></li>
+        <li style="font-size:120%"><a href="#">BLOG</a></li>
+         <li style="font-size:120%"><a href="#">CONTACT</a></li>
+       
+      </ul>
+     
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </div>
+</nav>
+
+
+ 
+
+  
+<div ng-show='totalVerified==false'>
+<div class='row'>
+  <div class='col-lg-8 col-md-8 col-sm-8' style='margin-left:10%; margin-right:10%'>  
+   <form ng-show='signinshow'>
+     <p style='color:red'> {{message}} </p>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email" ng-model='email'>
+  </div>
+  <div>
+<center> <h5>OR</h5></center>
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">PhoneNumber</label>
+    <input type="tel" pattern='[0-9]{10}' class="form-control" id="phoneNumber" ng-model='phoneNumber'>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" ng-model='password' required minlength="8">
+  </div>
+  <button ng-click='checking()' class="btn btn-default">Submit</button>
+</form>
+</div>
+</div>
+
+
+
+
+<div class='container'>
+<div class='row'> 
+  <div class='col-lg-6 col-md-6 col-sm-6'>
+ <div class='alert alert-success' ng-show='emailSentMessage.length>0'> 
+   {{emailSentMessage}}</div>
+</div>
+ <div class='alert alert-danger' ng-show='emailErrorMessage.length>0'> 
+   {{emailErrorMessage}}</div>
+</div>
+
+
+<div class='alert alert-danger' ng-show='showVerifyEmail'>
+Your Email has not been verified. 
+<button ng-click='emailVerifyAgain()'>Verify</button>
+   </div>
+<div ng-show='showVerifyPhone'>
+  <div class='alert alert-danger'>
+Your Phone has not been verified.
+<button ng-click='phoneVerifyAgain()'>Verify</button>
+  </div>
+ </div>
+  <div ng-show='otpsent'>
+<div class='alert alert-success' >
+OTP has been sent to your number-{{phoneNumber}}
+   </div>
+<div style="color:red">
+{{otpWarning}}
+</div>
+
+<form >
+   <div class="form-group">
+    <label for="currentPhoneNumber">Current phoneNumber</label>
+    <input type="tel" pattern ='[0-9]{10}' class="form-control" id="currentPhoneNumber" ng-model='phoneNumber' required >
+  </div>
+  
+  <div class="form-group">
+    <label for="otp">Enter the otp</label>
+    <input type="text" class="form-control" id="otp" ng-model='userOtp'>
+  </div>
+
+  <button ng-click=verifyOtp() class="btn btn-default">Verify otp</button>
+  <button ng-click=resendOtp() class='btn btn-info'>Resend Otp</button>
+</form>
+
+</div>
+  
+
+
+
+
+</div>
+</div>
+
+
+
+
+<div ng-if='totalVerified'>
+<div class='container'>
+<div class="jumbotron">
+  <h1>Hello {{username}}</h1>
+ 
+  <p>Your email has been verified</p>
+  <p>Your phone number has been verified</p>
+</div>
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	Index
+	</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src='js/angular.min.js'> </script>
+<script type="text/javascript" src='js/angular-route.min.js'> </script>
+<script type="text/javascript" src="js/angularwork.js"></script>
+
+
+
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+	<div class='container'>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header navbar-right">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="font-size:160%" href="#">PRIISH</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      	 <li class="dropdown">
+          <a href="#" style="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class='glyphicon glyphicon-home' style="font-size:120%"></span> </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Menu Option 1</a></li>
+           <li><a href="#">Menu Option 2</a></li>
+           <li><a href="#">Menu option 3</a></li>
+          </ul>
+        </li>
+        <li style="font-size:120%"><a href="#">ABOUT </a></li>
+        <li style="font-size:120%"><a href="#">BLOG</a></li>
+         <li style="font-size:120%"><a href="#">CONTACT</a></li>
+       
+      </ul>
+     
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </div>
+</nav>
+
+<div class='container'>
+<div class='row'>
+	<div class='col-lg-8 col-md-8 col-sm-8'>
+	<video width="100%" height="350" controls>
+  
+   
+Your browser does not support the video tag.
+</video>
+
+	</div>
+	<div class='col-lg-4 col-md-4 col-sm-4' ng-app='formApp'>
+
+
+<div style="border:2px solid black" ng-controller='formController'>
+
+
+	<h4 style="text-align:center">Register Now</h4>
+	<h6 style="color:red; text-align:center" ng-show='passwordWarning'>Warning: Passwords did not match</h6>
+		<form style="padding:10px" ng-submit='passwordChecker()'>
+			 <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" ng-model='username' placeholder="eg John Multer" minlength="4" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" ng-model="email" placeholder="eg.john@gmail.com" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" ng-model="password" placeholder="Password" minlength="8" required>
+  </div>
+   <div class="form-group">
+    <label for="confpassword">Confirm Password</label>
+    <input type="password" class="form-control" id="confpassword" ng-model="confPassword" placeholder="Type password again" minlength="8" required=>
+  </div>
+  <button type='submit' class="btn btn-success">Submit</button>
+</form>
+</div>
+
+
+
+
+
+
+
+	</div>
+	
+</div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
