@@ -7,3 +7,4 @@ mongoose.connect('your own db connection')
  and 
  for mail details in tranport auth 
 
+You have to less your security for gmail to send mail through nodemailer.See their docs.
