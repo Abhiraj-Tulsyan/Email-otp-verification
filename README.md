@@ -7,4 +7,8 @@ mongoose.connect('your own db connection')
  and 
  for mail details in tranport auth 
 
+
+You have to make account on twilio.OTP is sent using their rest api
+
+
 You have to less your security for gmail to send mail through nodemailer.See their docs.
