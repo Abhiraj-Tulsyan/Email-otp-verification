@@ -439,7 +439,7 @@ options={
     url:'https://api.authy.com/protected/json/phones/verification/check',
     headers:
     {
- 'X-Authy-API-Key': 'KCgbABrJ2BPS93HHz3SViq4UVPdol0DS'
+ 'X-Authy-API-Key': 'your key'
     },
 qs:
 {
